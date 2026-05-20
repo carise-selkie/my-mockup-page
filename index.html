@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smith College - Class of 2005 Portal</title>
+    <title>Alumni Portal Draft - Class of 2005 Portal</title>
     
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -11,10 +11,10 @@
 
     <style>
         :root {
-            --smith-blue: #002855;
-            --smith-gold: #F2A900;
-            --alum-yellow: #FFD100;      
-            --bg-cream-yellow: #FFFDF0;  
+            --smith-blue: #002855;       /* Primary Formal Navy */
+            --smith-gold: #F2A900;       /* Heritage Metallic Accent Gold */
+            --alum-yellow: #FFD100;      /* Class of 2005 Primary Yellow */      
+            --bg-cream-yellow: #FFFDF0;  /* Premium Warm Yellow Tint Canvas */  
             --text-dark: #222222;
         }
 
@@ -25,7 +25,7 @@
             color: var(--text-dark);
             line-height: 1.7;
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Merriweather', serif;
             font-weight: 700;
             color: var(--smith-blue);
@@ -51,14 +51,14 @@
             padding: 40px 15px;
         }
 
-        /* ⏳ COUNTDOWN HEADER THEME */
+        /* ⏳ REUNION TIMED COUNTDOWN MODULE */
         .countdown-container {
             background-color: var(--smith-blue);
             color: #ffffff;
             padding: 35px 20px;
             border-radius: 12px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             box-shadow: 0 8px 25px rgba(0,40,85,0.15);
             border: 2px solid var(--alum-yellow);
         }
@@ -68,9 +68,35 @@
         .clock-box span { font-size: 2rem; font-weight: 700; display: block; color: #ffffff; }
         .clock-box small { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; color: var(--alum-yellow); }
 
+        /* 📜 SOPHIA SMITH FOUNDING QUOTE BANNER */
+        .quote-banner {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--smith-gold);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .quote-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--smith-blue);
+            line-height: 1.6;
+        }
+        .quote-author {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            color: #555;
+        }
+
         /* 🖱️ TOP NAV ACTION BUTTONS */
         .btn-group { display: flex; gap: 15px; justify-content: center; margin-bottom: 35px; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 14px 28px; font-weight: 700; text-decoration: none; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; text-align: center; }
+        .btn { display: inline-block; padding: 14px 28px; font-weight: 700; text-decoration: none; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; text-align: center; border: none; cursor: pointer; }
         .btn-primary { background-color: var(--smith-blue); color: #ffffff; }
         .btn-primary:hover { background-color: #001329; transform: translateY(-1px); }
         .btn-accent { background-color: var(--alum-yellow); color: var(--smith-blue); box-shadow: 0 4px 12px rgba(255,209,0,0.25); }
@@ -121,11 +147,40 @@
         }
         .hub-link:hover { transform: translateY(-2px); filter: brightness(92%); }
 
-        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
-        .photo-slot {
-            aspect-ratio: 1; background: var(--bg-cream-yellow); border-radius: 6px; display: flex; align-items: center; justify-content: center;
-            color: #666; font-size: 0.85rem; font-weight: 600; border: 2px dashed var(--smith-gold); padding: 10px; text-align: center;
+        /* CABINET MEMBER GRID CARD STYLING */
+        .cabinet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
+        .cabinet-card {
+            background: #ffffff;
+            padding: 25px 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+        }
+        .cabinet-photo {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            border: 3px solid var(--alum-yellow);
+            display: block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        /* DYNAMIC FORM CONFIGURATION */
+        .form-label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--smith-blue); font-size: 0.9rem; }
+        .form-select, .form-input, .form-textarea {
+            width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; 
+            font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 20px; outline: none;
+            background-color: #fff;
+        }
+        .form-select:focus, .form-input:focus, .form-textarea:focus { border-color: var(--smith-blue); box-shadow: 0 0 0 3px rgba(0,40,85,0.08); }
 
         footer {
             background-color: var(--smith-blue); color: #ffffff; text-align: center;
@@ -157,28 +212,36 @@
             </div>
         </div>
 
+        <!-- 📜 FOUNDING SOPHIA SMITH QUOTE BANNER -->
+        <div class="quote-banner">
+            <p class="quote-text">"I hereby find that by the higher and more thorough education of women, what are called their 'wrongs' will be redressed, their wages adjusted, their power for good in society greatly increased."</p>
+            <p class="quote-author">— Sophia Smith, Last Will and Testament (1870)</p>
+        </div>
+
         <!-- 🖱️ TOP NAV ACTION BUTTONS -->
         <div class="btn-group">
             <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to Class Purse</a>
             <a href="https://smith.edu" target="_blank" class="btn btn-primary">Alumnae Directory (Secure Login)</a>
         </div>
 
-        <!-- 📂 STACKED GRID NAVIGATION -->
+        <!-- 📂 PORTAL NAVIGATION VIEW GRID -->
         <div class="tab-wrapper">
             <button class="tab-btn active" onclick="switchTab(event, 'socialhub')">Our Social Hub</button>
+            <button class="tab-btn" onclick="switchTab(event, 'cabinet')">Class Cabinet</button>
+            <button class="tab-btn" onclick="switchTab(event, 'contact')">Contact & Updates</button>
             <button class="tab-btn" onclick="switchTab(event, 'schedule')">Reunion Schedule</button>
-            <button class="tab-btn" onclick="switchTab(event, 'events')">Upcoming Events</button>
-            <button class="tab-btn" onclick="switchTab(event, 'album')">Class Photo Album</button>
-            <button class="tab-btn" onclick="switchTab(event, 'news')" style="grid-column: span 2;">News & Updates</button>
+            <button class="tab-btn" onclick="switchTab(event, 'events')" style="grid-column: span 2;">Upcoming Events</button>
         </div>
 
-        <!-- 📄 DATA DISPLAY CARDS -->
+        <!-- 📄 DISPLAY DATA CARD PANELS -->
         <div id="panels-container">
             
             <!-- TAB 1: SOCIAL HUB -->
             <div id="socialhub" class="tab-panel" style="display: block; border-top-color: var(--alum-yellow); text-align: center;">
-                <h3>Our Social Hub & Channels</h3>
-                <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any verified link button below:</p>
+                <h3>Welcome Back, Class of 2005!</h3>
+                <p style="margin-bottom: 25px; color: #555; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Welcome to our central hub. This space is built explicitly to keep our alumnae node connected globally as we march toward our 25th Milestone Reunion. Follow our updates, find your house communities, and join our official social streams below:
+                </p>
                 
                 <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">
                     🌐 Official Class Facebook Group
@@ -191,13 +254,60 @@
                 <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">
                     💼 Class LinkedIn Professional Network
                 </a>
-                
-                <a href="https://smith.edu" target="_blank" class="hub-link" style="background:var(--smith-blue); border: 2px solid var(--alum-yellow); color: #fff;">
-                    👛 Secure Class Purse Giving Link
-                </a>
             </div>
 
-            <!-- TAB 2: REUNION SCHEDULE -->
+            <!-- TAB 2: CLASS CABINET MEMBERS LAYOUT SECTION WITH STOCK IMAGES -->
+            <div id="cabinet" class="tab-panel" style="border-top-color: var(--smith-gold);">
+                <h3>Class Cabinet Officers</h3>
+                <p style="color: #555; margin-bottom: 15px;">Your serving Class of 2005 Executive Leadership Team:</p>
+                
+                <div class="cabinet-grid">
+                    <div class="cabinet-card">
+                        <img src="https://unsplash.com" alt="Officer Stock Photo" class="cabinet-photo">
+                        <h4>Alumna Officer A</h4>
+                        <p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class President</p>
+                    </div>
+                    <div class="cabinet-card">
+                        <img src="https://unsplash.com" alt="Officer Stock Photo" class="cabinet-photo">
+                        <h4>Alumna Officer B</h4>
+                        <p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class Vice President</p>
+                    </div>
+                    <div class="cabinet-card">
+                        <img src="https://unsplash.com" alt="Officer Stock Photo" class="cabinet-photo">
+                        <h4>Alumna Officer C</h4>
+                        <p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class Secretary</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: CONTACT PORTAL (Forms for Newsletter/Updates/Questions) -->
+            <div id="contact" class="tab-panel" style="border-top-color: var(--alum-yellow);">
+                <h3>Submit Alumnae Quarterly Notes & Class Updates</h3>
+                <p style="color: #555; margin-bottom: 25px;">Use this secure form to share personal news for inclusion in the Smith Alumnae Quarterly (SAQ) notes section, submit newsletter logs, modify your record info, or ask questions.</p>
+                
+                <form onsubmit="event.preventDefault(); alert('Concept Form Submission Successful!');">
+                    <label class="form-label">Select Form Purpose:</label>
+                    <select class="form-select">
+                        <option>Submit Life Note for SAQ Alumnae Quarterly</option>
+                        <option>Submit Content for the Class Newsletter / Blog</option>
+                        <option>Request Profile Information Update</option>
+                        <option>General Question for the Class Cabinet</option>
+                    </select>
+
+                    <label class="form-label">Your Full Name (Including Smith Name):</label>
+                    <input type="text" class="form-input" placeholder="e.g., Jane Smith Doe" required>
+
+                    <label class="form-label">Your Email Address:</label>
+                    <input type="email" class="form-input" placeholder="name@example.com" required>
+
+                    <label class="form-label">Your Submission Details, Note, or Question:</label>
+                    <textarea class="form-textarea" rows="5" placeholder="Type your class note submission or update text log here..." required></textarea>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Draft Information Form</button>
+                </form>
+            </div>
+
+            <!-- TAB 4: REUNION SCHEDULE -->
             <div id="schedule" class="tab-panel" style="border-top-color: var(--smith-blue);">
                 <h3>25th Milestone Reunion Schedule</h3>
                 <p style="margin-bottom: 20px; font-weight: 600; color: var(--smith-blue);">Official Dates: Thursday, May 23 – Sunday, May 26, 2030</p>
@@ -208,12 +318,12 @@
                 <p style="margin-top: 10px;"><strong>Sunday, May 26:</strong> Class of 2005 Farewell Breakfast & Housing Checkout (12:00 PM)</p>
             </div>
 
-            <!-- TAB 3: UPCOMING EVENTS & PURSE TARGET -->
-            <div id="events" class="tab-panel" style="border-top-color: var(--smith-gold);">
+            <!-- TAB 5: UPCOMING EVENTS & PURSE TARGET -->
+            <div id="events" class="tab-panel" style="border-top-color: var(--alum-yellow);">
                 <h3>Upcoming Virtual Gatherings & Fundraisers</h3>
                 <p style="margin-bottom: 25px; color: #555;">Check here for active class connection portals and digital meeting access links.</p>
                 
-                <!-- Class Purse Thermometer -->
+                <!-- Fundraising Thermometer Component -->
                 <div style="background: #ffffff; padding: 25px; border-radius: 8px; border: 2px solid var(--alum-yellow); margin-bottom: 25px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                         <div style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--smith-blue); border-radius: 50%;">
@@ -243,33 +353,11 @@
                 </div>
             </div>
 
-            <!-- TAB 4: CLASS PHOTO ALBUM -->
-            <div id="album" class="tab-panel" style="border-top-color: var(--smith-blue);">
-                <h3>Class Photo Album</h3>
-                <p style="color: #555;">Digital yearbook collections and memory snapshots through our years at Smith and past reunions.</p>
-                <div class="grid-gallery">
-                    <div class="photo-slot">Quad Life Archives</div>
-                    <div class="photo-slot">Ivy Day Walks</div>
-                    <div class="photo-slot">Commencement Day</div>
-                    <div class="photo-slot">Past Reunion Snaps</div>
-                </div>
-            </div>
-
-            <!-- TAB 5: CURRENT NEWSLETTER / BLOG -->
-            <div id="news" class="tab-panel" style="border-top-color: var(--smith-blue);">
-                <h3>Class News & Letters</h3>
-                <p style="font-style: italic; color: #666; margin-bottom: 15px;">Latest Update — Released Spring Season</p>
-                <h4 style="margin-top: 15px;">Inside the Current Circular Note:</h4>
-                <p style="margin: 8px 0; color: #333;">• Detailed update log notes submitted from regional alumnae hubs.</p>
-                <p style="margin: 8px 0; color: #333;">• Strategic message brief from our active serving Class Cabinet team.</p>
-                <a href="#" class="btn btn-primary" style="margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;">Download Newsletter PDF</a>
-            </div>
-
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Smith College Class of 2005. Custom Alumnae Architecture.</p>
+        <p>&copy; 2026 Smith College Class of 2005. Custom Portal Architecture.</p>
     </footer>
 
     <script>
