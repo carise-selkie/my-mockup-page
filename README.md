@@ -1,2 +1,253 @@
 # my-mockup-page
 Alum mockup
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smith College - Class of 2005</title>
+    
+    <!-- Premium Google Fonts pairing -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* 🎨 PALETTE MANAGEMENT (Smith Blue, Gold, and Alumnae Class Colors) */
+        :root {
+            --smith-blue: #002855;       /* Official Deep Navy */
+            --smith-gold: #F2A900;       /* Official Heritage Gold */
+            --alum-yellow: #FFD100;      /* Class of 2005 Spotlight Yellow */
+            --alum-red: #C8102E;         /* Traditional Class Red Accent */
+            --alum-green: #006A4E;       /* Traditional Class Green Accent */
+            --alum-blue: #0072CE;        /* Traditional Class Blue Accent */
+            --bg-cream: #FDFBF7;         /* High-end off-white canvas */
+            --text-dark: #222222;
+        }
+
+        /* RESET & BASE STYLES */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--smith-blue);
+        }
+
+        /* HEADER & NAVIGATION (Incorporating your active Crest Image) */
+        header {
+            background-color: #ffffff;
+            border-bottom: 4px solid var(--alum-yellow);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .header-crest {
+            max-height: 100px;
+            width: auto;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        header h1 { 
+            font-size: 1.8rem; 
+            letter-spacing: -0.5px; 
+            margin-top: 5px;
+        }
+
+        /* GLOBAL CONTAINER LAYOUT */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* ⏳ COUNTDOWN CLOCK SECTION */
+        .countdown-container {
+            background-color: var(--smith-blue);
+            color: #ffffff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: -20px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .countdown-container h2 { color: var(--alum-yellow); margin-bottom: 20px; font-size: 1.5rem; }
+        .clock-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .clock-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 85px;
+            border-bottom: 3px solid var(--alum-yellow);
+        }
+        .clock-box span { font-size: 2.2rem; font-weight: 700; display: block; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .clock-box small { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; opacity: 0.8; }
+
+        /* BUTTON DESIGN SYSTEMS */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 50px 0 30px 0;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background-color: var(--smith-blue); color: #ffffff; box-shadow: 0 4px 10px rgba(0,40,85,0.15); }
+        .btn-primary:hover { background-color: #001835; transform: translateY(-1px); }
+        .btn-accent { background-color: var(--smith-gold); color: var(--smith-blue); box-shadow: 0 4px 10px rgba(242,169,0,0.2); }
+        .btn-accent:hover { background-color: #d69500; transform: translateY(-1px); }
+
+        /* CONTENT SECTIONS GRID */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-top: 5px solid var(--smith-blue);
+        }
+        /* Color rotation matching traditional Alum Colors across segments */
+        .card:nth-child(1) { border-top-color: var(--alum-red); }
+        .card:nth-child(2) { border-top-color: var(--alum-green); }
+        .card:nth-child(3) { border-top-color: var(--alum-blue); }
+
+        .card h3 { margin-bottom: 20px; font-size: 1.35rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+        .card ul { list-style-position: inside; margin-top: 10px; }
+        .card li { margin-bottom: 12px; }
+        .card p { margin-bottom: 8px; }
+
+        /* FOOTER BRANDING */
+        footer {
+            background-color: var(--smith-blue);
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            font-size: 0.9rem;
+            border-top: 6px solid var(--smith-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🏛️ HEADER WITH AUTOMATIC CREST LOADING -->
+    <header>
+        <!-- Grabs your exact crest file natively from your repository directory -->
+        <img src="crest.gif" alt="Smith College Crest" class="header-crest">
+        <h1>SMITH COLLEGE CLASS OF 2005</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- ⏳ REUNION COUNTDOWN SECTION -->
+        <div class="countdown-container">
+            <h2 id="countdown-title">Countdown to Our Next Big Reunion!</h2>
+            <div class="clock-grid">
+                <div class="clock-box"><span id="days">00</span><small>Days</small></div>
+                <div class="clock-box"><span id="hours">00</span><small>Hours</small></div>
+                <div class="clock-box"><span id="minutes">00</span><small>Mins</small></div>
+                <div class="clock-box"><span id="seconds">00</span><small>Secs</small></div>
+            </div>
+        </div>
+
+        <!-- 🖱️ ACTION BUTTONS LINKS -->
+        <div class="btn-group">
+            <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to Class Fund</a>
+            <a href="https://smith.edu" target="_blank" class="btn btn-primary">Official Alumnae Directory</a>
+        </div>
+
+        <!-- 📐 THREE-COLUMN AD-FREE GRID STRUCTURE -->
+        <div class="grid-layout">
+            
+            <!-- COLUMN 1: CABINET SELECTION -->
+            <div class="card">
+                <h3>Class Cabinet</h3>
+                <p><strong>President:</strong> Jane Doe '05</p>
+                <p><strong>Vice President:</strong> Sarah Smith '05</p>
+                <p><strong>Secretary:</strong> Emily Clapp '05</p>
+                <p style="margin-top: 20px; font-size: 0.85rem; color: #666; line-height: 1.5;">To connect with or reach out to individual class officers directly, please use our secure community lookup portal above.</p>
+            </div>
+
+            <!-- COLUMN 2: REUNION CALENDAR -->
+            <div class="card">
+                <h3>Reunion Itinerary</h3>
+                <ul>
+                    <li><strong>Friday 5:00 PM:</strong> Welcome Back Tea</li>
+                    <li><strong>Saturday 10:00 AM:</strong> Alumnae Parade (Wear Whites!)</li>
+                    <li><strong>Saturday 6:00 PM:</strong> Class Dinner Gala</li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3: CONTACT FORM SECTOR -->
+            <div class="card">
+                <h3>Class FAQ & Channels</h3>
+                <p>Have a Facebook group? <a href="https://www.facebook.com" target="_blank" style="color: var(--smith-blue); font-weight:600;">Check us out here!</a></p>
+                <p style="margin-top: 10px;">Want to submit details or updates?</p>
+                <div style="margin-top: 25px;">
+                    <!-- REPLACE THIS WITH YOUR DIRECT FREE TALLY.SO / GOOGLE FORM EMBED LINK -->
+                    <a href="https://tally.so" target="_blank" style="background-color: #f0f4f8; padding: 10px 15px; border-radius: 4px; color: var(--smith-blue); font-weight: 600; text-decoration: none; display: inline-block;">Open Class Contact Form &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 🏛️ FOOTER BLOCK -->
+    <footer>
+        <p>&copy; Smith College Class of 2005. Built securely with pure code to last forever.</p>
+    </footer>
+
+    <!-- 🤖 AUTOMATIC COUNTDOWN ENGINE -->
+    <script>
+        // FUTURE EDITS: Just update this string to automatically run the clock math
+        const targetDate = new Date("May 21, 2030 12:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerHTML = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerHTML = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerHTML = s < 10 ? "0" + s : s;
+
+            if (diff < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown-title").innerHTML = "Welcome Back, Class of 2005!";
+                document.querySelector(".clock-grid").style.display = "none";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
