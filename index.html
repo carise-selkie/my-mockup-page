@@ -13,8 +13,8 @@
         :root {
             --smith-blue: #002855;
             --smith-gold: #F2A900;
-            --alum-yellow: #FFD100;      /* Class of 2005 Primary Yellow */
-            --bg-cream-yellow: #FFFDF0;  /* Premium Warm Custom Yellow Tint Canvas */
+            --alum-yellow: #FFD100;      
+            --bg-cream-yellow: #FFFDF0;  
             --text-dark: #222222;
         }
 
@@ -51,7 +51,7 @@
             padding: 40px 15px;
         }
 
-        /* ⏳ COUNTDOWN HEADER THEME UPGRADE */
+        /* ⏳ COUNTDOWN HEADER THEME */
         .countdown-container {
             background-color: var(--smith-blue);
             color: #ffffff;
@@ -68,7 +68,7 @@
         .clock-box span { font-size: 2rem; font-weight: 700; display: block; color: #ffffff; }
         .clock-box small { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; color: var(--alum-yellow); }
 
-        /* 🖱️ ACTIONABLE FIXED TOP UTILITY INTERFACES */
+        /* 🖱️ TOP NAV ACTION BUTTONS */
         .btn-group { display: flex; gap: 15px; justify-content: center; margin-bottom: 35px; flex-wrap: wrap; }
         .btn { display: inline-block; padding: 14px 28px; font-weight: 700; text-decoration: none; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; text-align: center; }
         .btn-primary { background-color: var(--smith-blue); color: #ffffff; }
@@ -76,20 +76,35 @@
         .btn-accent { background-color: var(--alum-yellow); color: var(--smith-blue); box-shadow: 0 4px 12px rgba(255,209,0,0.25); }
         .btn-accent:hover { background-color: #e6bd00; transform: translateY(-1px); }
 
-        /* SCROLLABLE INTERACTIVE NAVIGATION TAB SYSTEMS */
+        /* 📱 RESPONSIVE STACKED MOBILE NAVIGATION GRID */
         .tab-wrapper {
-            overflow-x: auto; white-space: nowrap; background: #ffffff; padding: 8px; border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.05);
+            background: #ffffff; padding: 10px; border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 30px; 
+            border: 1px solid rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 8px;
         }
-        .tab-wrapper::-webkit-scrollbar { display: none; }
-        .tab-btn {
-            display: inline-block; padding: 12px 22px; font-family: 'Inter', sans-serif; font-weight: 700;
-            font-size: 0.9rem; background: none; border: none; color: #555; cursor: pointer;
-            border-bottom: 3px solid transparent; transition: all 0.15s; margin-right: 5px;
+        @media(min-width: 600px) {
+            .tab-wrapper { display: flex; flex-wrap: wrap; justify-content: center; }
         }
-        .tab-btn.active { color: var(--smith-blue); background-color: rgba(255,209,0,0.15); border-radius: 4px; border-bottom: 3px solid var(--smith-blue); }
 
-        /* TAB DATA CONTAINER PANELS */
+        .tab-btn {
+            display: block; width: 100%; padding: 12px 10px; font-family: 'Inter', sans-serif; font-weight: 700;
+            font-size: 0.85rem; background: #f7f9fa; border: 1px solid #e2e8f0; color: #555; cursor: pointer;
+            transition: all 0.15s; border-radius: 6px; text-align: center;
+        }
+        @media(min-width: 600px) {
+            .tab-btn { width: auto; background: none; border: none; border-bottom: 3px solid transparent; border-radius: 0; }
+        }
+        .tab-btn.active { 
+            color: #ffffff; background-color: var(--smith-blue); border-color: var(--smith-blue);
+        }
+        @media(min-width: 600px) {
+            .tab-btn.active { color: var(--smith-blue); background-color: rgba(255,209,0,0.15); border-bottom: 3px solid var(--smith-blue); border-color: transparent; }
+        }
+
+        /* DATA DISPLAY CARDS */
         .tab-panel {
             display: none; background: #ffffff; padding: 35px 30px; border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-top: 6px solid var(--smith-blue);
@@ -98,7 +113,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .tab-panel h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--smith-blue); }
 
-        /* ACTIVE LINK HUBS BUTTON LAYOUTS (LINKTREE CONCEPTS) */
+        /* LINKTREE CONTAINER BUTTONS */
         .hub-link {
             display: flex; align-items: center; justify-content: center; width: 100%; max-width: 480px; margin: 14px auto; padding: 15px;
             color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; transition: 0.2s;
@@ -133,7 +148,7 @@
 
         <!-- ⏳ TIMED COUNTDOWN MODULE -->
         <div class="countdown-container">
-            <h2>Countdown to Our Next Big Milestone Reunion!</h2>
+            <h2 id="countdown-title">Countdown to Our 25th Milestone Reunion!</h2>
             <div class="clock-grid">
                 <div class="clock-box"><span id="days">00</span><small>Days</small></div>
                 <div class="clock-box"><span id="hours">00</span><small>Hours</small></div>
@@ -142,52 +157,55 @@
             </div>
         </div>
 
-        <!-- 🖱️ MAIN SECURE RESOURCE NAVIGATION INTERFACES -->
+        <!-- 🖱️ TOP NAV ACTION BUTTONS -->
         <div class="btn-group">
             <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to Class Purse</a>
             <a href="https://smith.edu" target="_blank" class="btn btn-primary">Alumnae Directory (Secure Login)</a>
         </div>
 
-        <!-- 📂 PORTAL VIEW TABS MENU -->
+        <!-- 📂 STACKED GRID NAVIGATION -->
         <div class="tab-wrapper">
             <button class="tab-btn active" onclick="switchTab(event, 'socialhub')">Our Social Hub</button>
             <button class="tab-btn" onclick="switchTab(event, 'schedule')">Reunion Schedule</button>
-            <button class="tab-btn" onclick="switchTab(event, 'events')">Upcoming Events & Purse</button>
+            <button class="tab-btn" onclick="switchTab(event, 'events')">Upcoming Events</button>
             <button class="tab-btn" onclick="switchTab(event, 'album')">Class Photo Album</button>
-            <button class="tab-btn" onclick="switchTab(event, 'news')">News & Updates</button>
+            <button class="tab-btn" onclick="switchTab(event, 'news')" style="grid-column: span 2;">News & Updates</button>
         </div>
 
-        <!-- 📄 DISPLAY DATA CARD INTERFACES -->
+        <!-- 📄 DATA DISPLAY CARDS -->
         <div id="panels-container">
             
-            <!-- TAB 1: SOCIAL HUB (Linktree Variant Default Mode) -->
+            <!-- TAB 1: SOCIAL HUB -->
             <div id="socialhub" class="tab-panel" style="display: block; border-top-color: var(--alum-yellow); text-align: center;">
                 <h3>Our Social Hub & Channels</h3>
-                <p style="margin-bottom: 25px; color: #555;">Connect with classmates immediately. Click any verified destination path button below to join our networks:</p>
+                <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any verified link button below:</p>
                 
-                <!-- Active Verified Smith Class of 2005 Facebook Page Link -->
-                <a href="https://www.facebook.com/groups/273858922665513/" target="_blank" class="hub-link" style="background:#1877F2;">
-                    🌐 Connect on Our Class Facebook Page
+                <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">
+                    🌐 Official Class Facebook Group
                 </a>
                 
-                <!-- Live Professional Discord Community Channel Portal Button Link -->
-                <a href="https://discord.com" target="_blank" class="hub-link" style="background:#5865F2;">
-                    💬 Join Our Class Discord Community Server
+                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">
+                    📸 Class Instagram Photo Feed Archive
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">
+                    💼 Class LinkedIn Professional Network
                 </a>
                 
-                <!-- Dedicated Target Active Fundraising Form Node Box -->
                 <a href="https://smith.edu" target="_blank" class="hub-link" style="background:var(--smith-blue); border: 2px solid var(--alum-yellow); color: #fff;">
-                    👛 Secure Class Purse Donation Portal
+                    👛 Secure Class Purse Giving Link
                 </a>
             </div>
 
             <!-- TAB 2: REUNION SCHEDULE -->
             <div id="schedule" class="tab-panel" style="border-top-color: var(--smith-blue);">
-                <h3>Reunion Schedule & Itinerary</h3>
-                <p style="margin-bottom: 20px; color: #555;">Planning your trip back to Northampton? Here is our official layout timeline:</p>
-                <p><strong>Friday 5:00 PM:</strong> Welcome Back Tea (House Common Rooms)</p>
-                <p style="margin-top: 10px;"><strong>Saturday 10:00 AM:</strong> Alumnae Ivy Day Parade (Remember to pack your whites!)</p>
-                <p style="margin-top: 10px;"><strong>Saturday 6:00 PM:</strong> Class of 2005 Anniversary Dinner Gala Banquet</p>
+                <h3>25th Milestone Reunion Schedule</h3>
+                <p style="margin-bottom: 20px; font-weight: 600; color: var(--smith-blue);">Official Dates: Thursday, May 23 – Sunday, May 26, 2030</p>
+                <p style="margin-bottom: 20px; color: #555;">Save the dates for our return to Northampton! Here is our traditional layout timeline:</p>
+                <p><strong>Thursday, May 23:</strong> Campus Arrival & House Housing Check-In Opens (4:00 PM)</p>
+                <p style="margin-top: 10px;"><strong>Friday, May 24:</strong> Faculty Lectures & Welcome Back House Tea (5:00 PM)</p>
+                <p style="margin-top: 10px;"><strong>Saturday, May 25:</strong> Traditional Alumnae Ivy Day Parade (Wear your whites!) & Illumination Night</p>
+                <p style="margin-top: 10px;"><strong>Sunday, May 26:</strong> Class of 2005 Farewell Breakfast & Housing Checkout (12:00 PM)</p>
             </div>
 
             <!-- TAB 3: UPCOMING EVENTS & PURSE TARGET -->
@@ -195,7 +213,7 @@
                 <h3>Upcoming Virtual Gatherings & Fundraisers</h3>
                 <p style="margin-bottom: 25px; color: #555;">Check here for active class connection portals and digital meeting access links.</p>
                 
-                <!-- Class Purse Thermometer Layout Component -->
+                <!-- Class Purse Thermometer -->
                 <div style="background: #ffffff; padding: 25px; border-radius: 8px; border: 2px solid var(--alum-yellow); margin-bottom: 25px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                         <div style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--smith-blue); border-radius: 50%;">
@@ -216,14 +234,16 @@
                     </div>
                 </div>
 
-                <div style="background: #ffffff; padding: 15px; border-radius: 6px; border-left: 4px solid var(--smith-blue); border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                    <h4>💻 Pre-Reunion Zoom Social Drop-In</h4>
-                    <p style="font-size: 0.9rem; color: #444; margin: 4px 0;">Catch up with classmates casually from around the globe before the gathering.</p>
-                    <a href="https://zoom.us" target="_blank" style="color: var(--smith-blue); font-weight: 700; font-size: 0.9rem; text-decoration: none;">Launch Zoom Meeting Room &rarr;</a>
+                <!-- Zoom Links -->
+                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border-left: 5px solid var(--smith-blue); border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                    <h4 style="color: var(--smith-blue); font-family: 'Merriweather', serif; margin-bottom: 5px;">💻 Upcoming Class Zoom Meetings</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Tap the quick links below to open video meetings directly in your Zoom app:</p>
+                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #0b5ee6; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-right: 10px; margin-bottom: 5px;">Join Next Class Social Room &rarr;</a>
+                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #2d3748; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-bottom: 5px;">Join Cabinet Planning Room &rarr;</a>
                 </div>
             </div>
 
-            <!-- TAB 4: CLASS FACES / YEARBOOK PHOTOS -->
+            <!-- TAB 4: CLASS PHOTO ALBUM -->
             <div id="album" class="tab-panel" style="border-top-color: var(--smith-blue);">
                 <h3>Class Photo Album</h3>
                 <p style="color: #555;">Digital yearbook collections and memory snapshots through our years at Smith and past reunions.</p>
@@ -263,6 +283,34 @@
             document.getElementById(tabId).style.display = 'block';
             event.currentTarget.classList.add('active');
         }
+    </script>
+
+    <!-- 🕹️ LIVE REUNION COUNTDOWN CLOCK ENGINE -->
+    <script>
+        const targetDate = new Date("May 23, 2030 16:00:00").getTime();
+
+        function updateCountdownClock() {
+            const now = new Date().getTime();
+            const timeDifference = targetDate - now;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            if (timeDifference > 0) {
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            } else {
+                document.getElementById("countdown-title").innerText = "Welcome Back to Northampton! Reunion is here!";
+                document.querySelector(".clock-grid").style.display = "none";
+            }
+        }
+
+        setInterval(updateCountdownClock, 1000);
+        updateCountdownClock();
     </script>
 
 </body>
