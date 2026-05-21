@@ -13,7 +13,7 @@
         :root {
             --smith-blue: #002855;       
             --smith-gold: #F2A900;       
-            --alum-yellow: #FFD100;      /* Class of 2005 Primary Yellow */      
+            --alum-yellow: #FFD100;      
             --bg-cream-yellow: #FFFDF0;  
             --text-dark: #1A202C;
             --panel-red: #C8102E;        
@@ -29,35 +29,69 @@
             line-height: 1.7;
         }
 
-        /* 📰 HIGH-IMPACT MAGAZINE BLOCK COVER HEADER */
+        /* 📰 HIGH-IMPACT COMPRESSED COVER HEADER LAYOUT */
         header {
             background-color: var(--alum-yellow); 
-            padding: 50px 10px 45px 10px;
+            padding: 55px 10px 45px 10px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border-bottom: 8px solid var(--smith-blue);
         }
         
-        /* 🏛️ ULTRA-THICK COMPRESSED TYPOGRAPHY ENGINE */
+        /* 🏛️ ELITE EDITORIAL OVERBLOWN TEXT ENGINE */
         .cover-title {
             font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: clamp(4.2rem, 16vw, 9.5rem); 
+            font-size: clamp(5.5rem, 24vw, 12rem); 
             color: var(--smith-blue);
-            line-height: 0.8;
-            letter-spacing: -3px; 
+            line-height: 0.75;
+            letter-spacing: -4px; 
             text-transform: uppercase;
-            margin: 0 auto 20px auto;
-            display: block;
-            -webkit-text-stroke: 3px var(--smith-blue);
-            text-stroke: 3px var(--smith-blue);
-        }
-
-        /* 🏛️ CUSTOM CHASSIS VECTOR SEAL ELEMENT */
-        .editorial-seal {
-            width: 110px;
-            height: 110px;
             margin: 0 auto;
             display: block;
+            -webkit-text-stroke: 5px var(--smith-blue);
+            text-stroke: 5px var(--smith-blue);
+        }
+
+        /* 🏛️ ELITE TYPE WRAPPED CIRCULAR ACCENT SEAL */
+        .seal-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 25px auto 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .seal-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateSeal 20s linear infinite; /* Optional subtle editorial rotation motion */
+        }
+        @keyframes rotateSeal { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .seal-svg text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 6px; /* Expanded spacing width matrix values */
+            fill: var(--smith-blue);
+            font-size: 11px;
+        }
+
+        /* OVERBLOWN TALL BOLD YEAR CENTER ENGINE */
+        .seal-center-year {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: var(--smith-blue);
+            line-height: 1;
+            letter-spacing: -1px;
+            transform: scaleY(1.45); /* Stretches the typography vertically to lock high-impact geometry */
+            display: inline-block;
+            z-index: 5;
+            margin-top: -2px;
         }
 
         .container {
@@ -66,7 +100,7 @@
             padding: 40px 15px;
         }
 
-        /* ⏳ HIGH-CONTRAST TIMED COUNTDOWN MODULE */
+        /* ⏳ TIMED COUNTDOWN MODULE */
         .countdown-container {
             background-color: var(--smith-blue);
             color: #ffffff;
@@ -83,7 +117,7 @@
         .clock-box span { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; display: block; color: #ffffff; }
         .clock-box small { font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; color: var(--alum-yellow); font-weight: 600; }
 
-        /* 📋 LOW-PRESSURE EDITORIAL WORKSPACE BANNER */
+        /* 📋 WELCOME NOTICE STRIP */
         .welcome-card {
             background-color: #ffffff;
             padding: 30px;
@@ -95,7 +129,7 @@
         .welcome-card h3 { font-size: 1.4rem; margin-bottom: 10px; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.5px; color: var(--smith-blue); }
         .welcome-card p { font-size: 0.95rem; color: #4a5568; line-height: 1.6; }
 
-        /* 🖱️ HIGH-PRIORITY ACTION BUTTON LINKS */
+        /* 🖱️ TOP QUICK BUTTON ACTIONS */
         .btn-group { display: flex; gap: 15px; justify-content: center; margin-bottom: 35px; flex-wrap: wrap; }
         .btn { display: inline-block; padding: 14px 28px; font-weight: 700; text-decoration: none; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; text-align: center; border: none; cursor: pointer; }
         .btn-primary { background-color: var(--smith-blue); color: #ffffff; }
@@ -103,7 +137,7 @@
         .btn-accent { background-color: var(--alum-yellow); color: var(--smith-blue); box-shadow: 0 4px 12px rgba(255,209,0,0.25); border: 2px solid var(--smith-blue); }
         .btn-accent:hover { background-color: #e6bd00; transform: translateY(-1px); }
 
-        /* 📱 MOBILE RESPONSIVE NAVIGATION GRID SYSTEM WITH DOUBLE-WIDE BUTTON */
+        /* 📱 RESPONSIVE NAVIGATION GRID SYSTEM WITH DOUBLE-WIDE CORES BOTTOM SWITCH */
         .tab-wrapper {
             background: #ffffff; padding: 10px; border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 30px; 
@@ -140,12 +174,11 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .tab-panel h3 { margin-bottom: 18px; font-size: 1.45rem; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--smith-blue); letter-spacing: -0.5px; }
 
-        /* LINKTREE CHANNELS STYLING */
+        /* LINKTREE CHANNELS STYLING — ALL EMOJIS CLEANLY PURGED AS REQUESTED */
         .hub-link {
             display: flex; align-items: center; justify-content: center; width: 100%; max-width: 480px; margin: 14px auto; padding: 15px;
             color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; transition: 0.2s;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            font-size: 0.95rem;
         }
         .hub-link:hover { transform: translateY(-2px); filter: brightness(92%); }
 
@@ -183,23 +216,23 @@
 </head>
 <body>
 
-    <!-- 📰 OVERBLOWN TEXT + MATHEMATICALLY CURVED EDITORIAL SEAL HEADER -->
     <header>
-        <span class="cover-title">Smith Grads</span>
+        <span class="cover-title">Smith</span>
         
-        <!-- SVG Vector Emblem: Curves "CLASS OF" natively around top arc with centered 2005 logic -->
-        <svg class="editorial-seal" viewBox="0 0 100 100">
-            <defs>
-                <path id="textPath" d="M 16,50 A 34,34 0 0,1 84,50" />
-            </defs>
-            <circle cx="50" cy="50" r="46" fill="none" stroke="#002855" stroke-width="2"/>
-            <circle cx="50" cy="50" r="41" fill="none" stroke="#002855" stroke-width="0.75"/>
-            <circle cx="50" cy="50" r="32" fill="#002855" />
-            <text fill="#002855" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" letter-spacing="3.5">
-                <textPath href="#textPath" startOffset="50%" text-anchor="middle">CLASS OF</textPath>
-            </text>
-            <text x="50" y="55" fill="#FFD100" font-family="'Inter', sans-serif" font-size="14" font-weight="900" text-anchor="middle" letter-spacing="-0.5px">2005</text>
-        </svg>
+        <!-- 🏛️ UPGRADED EDITORIAL SEAL INCORPORATING SPECIFIED TARGET LAYOUTS -->
+        <div class="seal-container">
+            <svg class="seal-svg" viewBox="0 0 100 100">
+                <defs>
+                    <path id="textPath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+                </defs>
+                <!-- Wraps text layout floating over top arc radius securely -->
+                <text><textPath href="#textPath" startOffset="50%" text-anchor="middle">Class Of</textPath></text>
+                <!-- Double internal divider design ring alignment marks -->
+                <circle cx="50" cy="50" r="28" fill="none" stroke="var(--smith-blue)" stroke-width="1.5" stroke-dasharray="2 1" />
+                <circle cx="50" cy="50" r="44" fill="none" stroke="var(--smith-blue)" stroke-width="1" />
+            </svg>
+            <div class="seal-center-year">2005</div>
+        </div>
     </header>
 
     <div class="container">
@@ -221,13 +254,13 @@
             <p>Welcome to our draft interface portal. This workspace layout connects our alumnae network globally as we head toward our milestone weekend. Check out your house loops, track fundraisers, and connect across our core communication portals below.</p>
         </div>
 
-        <!-- 🖱️ TOP QUICK LINK BUTTON ACTIONS (GOES DIRECTLY TO INSTITUTION SECTOR) -->
+        <!-- 🖱️ TOP QUICK BUTTON ACTIONS -->
         <div class="btn-group">
-            <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to College Fund</a>
+            <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to Central Smith College Fund</a>
             <a href="https://smith.edu" target="_blank" class="btn btn-primary">Alumnae Directory (Secure Login)</a>
         </div>
 
-        <!-- 📂 THE 7 SEPARATED NAVIGATION CHANNELS INTERACTIVE HOUSING SWITCH -->
+        <!-- 📂 STACK NAVIGATION CONTROLS INTERACTIVE 7 NAVIGATION SYSTEM MODULES -->
         <div class="tab-wrapper">
             <button class="tab-btn active" onclick="switchTab(event, 'socialhub')">Our Social Hub</button>
             <button class="tab-btn" onclick="switchTab(event, 'album')">Photo Wall</button>
@@ -235,28 +268,27 @@
             <button class="tab-btn" onclick="switchTab(event, 'events')">Upcoming Events and Reunion</button>
             <button class="tab-btn" onclick="switchTab(event, 'merch')">Class Fundraisers & Merch Store</button>
             <button class="tab-btn" onclick="switchTab(event, 'contact')">Contact & Updates</button>
-            <!-- Double-wide baseline configuration layout anchor for mobile views -->
             <button class="tab-btn" onclick="switchTab(event, 'news')" style="grid-column: span 2;">News & Notes</button>
         </div>
 
-        <!-- 📄 DYNAMIC CARDS PANEL CONTENT CONTROLLER -->
+        <!-- 📄 DATA DISPLAY PANELS DATA TILES BOXES -->
         <div id="panels-container">
             
-            <!-- PANEL 1: LINKTREE HUBS (CLEAN STRIPPED DECORATIONS) -->
+            <!-- TAB 1: SOCIAL LINKTREE HUB — EMOJIS CLEANLY REMOVED AND SPOTIFY MATRIX INCORPORATED -->
             <div id="socialhub" class="tab-panel" style="display: block; border-top-color: var(--alum-yellow); text-align: center;">
                 <h3>Our Social Hub & Channels</h3>
-                <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any verified link shortcut below:</p>
-                <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">Facebook Group Channel</a>
-                <a href="https://discord.com" target="_blank" class="hub-link" style="background:#5865F2;">Discord Community Server</a>
+                <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any active link shortcut button below:</p>
                 
-                <!-- NEW SPOTIFY SYSTEM SHORTCUT ENTRY ACCORDING TO PLAN -->
-                <a href="https://spotify.com" target="_blank" class="hub-link" style="background:#1DB954;">Class Generation Spotify Playlists</a>
+                <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">Class Facebook Group</a>
+                <a href="https://discord.com" target="_blank" class="hub-link" style="background:#5865F2;">Class Discord Community Server</a>
+                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">Class Instagram Photo Feed Archive</a>
+                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">Class LinkedIn Professional Network</a>
                 
-                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">Instagram Photo Feed Archive</a>
-                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">LinkedIn Professional Network</a>
+                <!-- 🎵 CUSTOM DESIGNED AD-FREE SPOTIFY PLAYLIST LINK CHANNEL PORTAL LINK -->
+                <a href="https://spotify.com" target="_blank" class="hub-link" style="background:#1DB954; color:#fff; font-weight:700;">Class of 2005 Audio Spotify Playlist Hub</a>
             </div>
 
-            <!-- PANEL 2: PHOTO WALL GRID -->
+            <!-- TAB 2: PHOTO WALL GRID -->
             <div id="album" class="tab-panel" style="border-top-color: var(--panel-red);">
                 <h3>Class Photo Wall</h3>
                 <p style="color: #555; font-size: 0.95rem;">Snapshots and memory frames running across our years at Smith and past milestones.</p>
@@ -268,7 +300,7 @@
                 </div>
             </div>
 
-            <!-- PANEL 3: CABINET LEADER TILES -->
+            <!-- TAB 3: EXECUTIVE LEADERSHIP TILES -->
             <div id="cabinet" class="tab-panel" style="border-top-color: var(--smith-gold);">
                 <h3>Class Cabinet Officers</h3>
                 <p style="color: #555; margin-bottom: 15px;">Your serving Class Executive Leadership Team:</p>
@@ -279,7 +311,7 @@
                 </div>
             </div>
 
-            <!-- PANEL 4: EVENTS TIMELINE -->
+            <!-- TAB 4: UPCOMING EVENTS & REUNION -->
             <div id="events" class="tab-panel" style="border-top-color: var(--panel-blue);">
                 <h3>25th Milestone Reunion Schedule</h3>
                 <p style="margin-bottom: 20px; font-weight: 600; color: var(--smith-blue);">Official Dates: Thursday, May 23 – Sunday, May 26, 2030</p>
@@ -288,48 +320,41 @@
                 <p style="margin-top: 10px;"><strong>Friday, May 24:</strong> Faculty Lectures & Welcome Back Common Room Tea (5:00 PM)</p>
                 <p style="margin-top: 10px;"><strong>Saturday, May 25:</strong> Traditional Alumni Parade (Remember to pack your whites!) & Illumination Night</p>
                 <p style="margin-top: 10px;"><strong>Sunday, May 26:</strong> Class of 2005 Farewell Breakfast & Housing Checkout (12:00 PM)</p>
-                
-                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border-left: 5px solid var(--smith-blue); border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 25px;">
-                    <h4 style="color: var(--smith-blue); margin-bottom: 5px;">💻 Mini Reunion Zoom Social Portals</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Connect virtually via our regular digital check-ins leading up to the on-campus milestone gathering:</p>
-                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #0b5ee6; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-right: 10px; margin-bottom: 5px;">Join Active Class Social Room &rarr;</a>
-                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #2d3748; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-bottom: 5px;">Join Cabinet Planning Room &rarr;</a>
-                </div>
             </div>
 
-            <!-- PANEL 5: DISCRETIONARY CLASS PURSE FUND & STORE CHANNELS -->
+            <!-- TAB 5: DISCRETIONARY CLASS PURSE AND APPAREL STORE CHANNELS -->
             <div id="merch" class="tab-panel" style="border-top-color: var(--panel-green);">
-                <h3>Class Fundraisers & Merch Store</h3>
-                <p style="margin-bottom: 25px; color: #555;">This space is managed exclusively by your serving Class Cabinet for discretionary allocations, reunion amenities, and local class operation funding tasks.</p>
+                <h3>Class Fundraisers & Swag Store</h3>
+                <p style="margin-bottom: 25px; color: #555;">This page is managed by the cabinet as a discretionary tool box for our custom class initiatives, milestone events, and on-demand apparel runs.</p>
                 
-                <!-- Class Purse Thermometer layout -->
+                <!-- 👛 DISCRETIONARY CABINET METERS BOX -->
                 <div style="background: #ffffff; padding: 25px; border-radius: 8px; border: 2px solid var(--alum-yellow); margin-bottom: 25px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                         <div style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--smith-blue); border-radius: 50%;">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--alum-yellow)" stroke-width="2"><rect x="2" width="20" height="12" rx="2" y="7"></rect><circle cx="12" cy="13" r="2"></circle><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path></svg>
                         </div>
-                        <h4 style="margin: 0; color: var(--smith-blue);">The Class Purse Milestone Goal</h4>
+                        <h4 style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--smith-blue);">Fundraising for the Discretionary Class Purse</h4>
                     </div>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Discretionary tracking bar for custom class operations and legacy project coordination assets.</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">To contribute directly to this internal class operational account, please drop a note to our Class Treasurer or connect via our payment collection points below.</p>
                     <div style="width: 100%; background-color: #edf2f7; height: 24px; border-radius: 12px; overflow: hidden; position: relative; margin-bottom: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
                         <div style="width: 68%; background: linear-gradient(90deg, var(--smith-gold), var(--alum-yellow)); height: 100%; border-radius: 12px 0 0 12px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px;"><span style="font-size: 0.75rem; font-weight: 700; color: var(--smith-blue);">68%</span></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: #4a5568;"><span>Raised: $13,600</span><span>Goal: $20,000</span></div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: #4a5568;"><span>Purse Raised: $13,600</span><span>Cabinet Target Goal: $20,000</span></div>
                 </div>
 
-                <!-- Pay as you go store systems -->
+                <!-- 🛒 PRINT ON DEMAND CHANNELS LINK DATA PANELS -->
                 <div style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #eee;">
-                    <h4 style="color: var(--smith-blue); margin-bottom: 8px;">👕 On-Demand Custom Apparel Store</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Order custom class color garments, items, and event swag directly. Manufactured and shipped individually per order with zero production risk:</p>
-                    <a href="https://printful.com" target="_blank" class="hub-link" style="background:#E2442F; margin: 10px auto;">Launch Printful Merchandise Engine &rarr;</a>
-                    <a href="https://teespring.com" target="_blank" class="hub-link" style="background:#2B2B2B; margin: 10px auto;">Launch Spring (Teespring) Swag Store &rarr;</a>
+                    <h4 style="color: var(--smith-blue); font-family: 'Inter', sans-serif; font-weight: 700; margin-bottom: 8px;">Class of 2005 Custom Swag Store</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Order print-on-demand custom gear. Items are manufactured and shipped individually with zero inventory overhead risk for our cabinet funds:</p>
+                    <a href="https://printful.com" target="_blank" class="hub-link" style="background:#E2442F; margin: 10px auto;">Launch Our Printful Merchandise Engine &rarr;</a>
+                    <a href="https://teespring.com" target="_blank" class="hub-link" style="background:#2B2B2B; margin: 10px auto;">Launch Our Spring Merchandise Portal &rarr;</a>
                 </div>
             </div>
 
-            <!-- PANEL 6: INPUT CONTEXT UPDATER FORMS -->
+            <!-- TAB 6: CONTACT & UPDATES -->
             <div id="contact" class="tab-panel" style="border-top-color: var(--smith-blue);">
                 <h3>Submit Updates & Reach Class Officers</h3>
-                <p style="color: #555; margin-bottom: 25px;">Use this secure portal tab form setup to request personal file profile alterations, file news text updates, or check quick questions with cabinet handlers.</p>
+                <p style="color: #555; margin-bottom: 25px;">Use this form to share updates for inclusion in alum records, submit newsletter logs, modify your information, or ask questions.</p>
                 <form onsubmit="event.preventDefault(); alert('Concept Form Submission Successful!');">
                     <label class="form-label">Select Form Purpose:</label>
                     <select class="form-select">
@@ -341,14 +366,38 @@
                     <label class="form-label">Your Email Address:</label>
                     <input type="email" class="form-input" placeholder="name@example.com" required>
                     <label class="form-label">Your Submission Details:</label>
-                    <textarea class="form-textarea" rows="5" placeholder="Type your text message details here..." required></textarea>
+                    <textarea class="form-textarea" rows="5" placeholder="Type your note or update text here..." required></textarea>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Information Update</button>
                 </form>
             </div>
 
-            <!-- PANEL 7: NEWS & NOTES CHANNELS LISTS -->
+            <!-- TAB 7: NEWS & NOTES -->
             <div id="news" class="tab-panel" style="border-top-color: var(--smith-gold);">
                 <h3>Class News & Notes</h3>
                 <p style="font-style: italic; color: #666; margin-bottom: 15px;">Latest Circular Logs — Released Spring Season</p>
-                
-                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 25px
+                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+                    <h4 style="color: var(--smith-blue); margin-bottom: 8px;">Official Smith College Alumnae Association Updates</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Stay aligned with centralized campus developments, institutional announcements, and global network trackers:</p>
+                    <a href="https://smith.edu" target="_blank" class="btn btn-primary" style="display: block; text-decoration: none; text-align: center; width: 100%; max-width: 350px; margin: 0 auto;">Access Official Smith Alumnae Association Portals &rarr;</a>
+                </div>
+                <h4 style="margin-top: 15px;">Inside the Current Class Newsletter:</h4>
+                <p style="margin: 8px 0; color: #333;">• Detailed update log notes submitted from regional alumnae hubs.</p>
+                <p style="margin: 8px 0; color: #333;">• Strategic milestone update messages written by your active Class Cabinet team.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Class of 2005. Ultra-Thick Cover Typography Architecture.</p>
+    </footer>
+
+    <script>
+        function switchTab(event, tabId) {
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(p => p.style.display = 'none');
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabId
