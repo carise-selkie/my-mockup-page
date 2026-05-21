@@ -29,40 +29,35 @@
             line-height: 1.7;
         }
 
-        /* 📰 HIGH-IMPACT COMPRESSED COVER HEADER LAYOUT */
+        /* 📰 HIGH-IMPACT MAGAZINE BLOCK COVER HEADER */
         header {
             background-color: var(--alum-yellow); 
-            padding: 55px 10px 45px 10px;
+            padding: 50px 10px 45px 10px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border-bottom: 8px solid var(--smith-blue);
         }
         
-        /* 🏛️ ULTRA-THICK SQUARED TEXT ENGINE */
+        /* 🏛️ ULTRA-THICK COMPRESSED TYPOGRAPHY ENGINE */
         .cover-title {
             font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: clamp(5rem, 20vw, 10.5rem); /* Expanded size matrix */
+            font-size: clamp(4.2rem, 16vw, 9.5rem); 
             color: var(--smith-blue);
             line-height: 0.8;
-            letter-spacing: -3px; /* Tightly track shapes without overlapping paths */
+            letter-spacing: -3px; 
             text-transform: uppercase;
+            margin: 0 auto 20px auto;
+            display: block;
+            -webkit-text-stroke: 3px var(--smith-blue);
+            text-stroke: 3px var(--smith-blue);
+        }
+
+        /* 🏛️ CUSTOM CHASSIS VECTOR SEAL ELEMENT */
+        .editorial-seal {
+            width: 110px;
+            height: 110px;
             margin: 0 auto;
             display: block;
-            
-            /* 💥 STROKE INJECTION: Artificially forces the letters to become much thicker */
-            -webkit-text-stroke: 4px var(--smith-blue);
-            text-stroke: 4px var(--smith-blue);
-        }
-        
-        .cover-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--smith-blue);
-            margin-top: 20px;
-            opacity: 0.9;
         }
 
         .container {
@@ -100,7 +95,7 @@
         .welcome-card h3 { font-size: 1.4rem; margin-bottom: 10px; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.5px; color: var(--smith-blue); }
         .welcome-card p { font-size: 0.95rem; color: #4a5568; line-height: 1.6; }
 
-        /* 🖱️ ACTION BUTTON LINKS */
+        /* 🖱️ HIGH-PRIORITY ACTION BUTTON LINKS */
         .btn-group { display: flex; gap: 15px; justify-content: center; margin-bottom: 35px; flex-wrap: wrap; }
         .btn { display: inline-block; padding: 14px 28px; font-weight: 700; text-decoration: none; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; text-align: center; border: none; cursor: pointer; }
         .btn-primary { background-color: var(--smith-blue); color: #ffffff; }
@@ -108,7 +103,7 @@
         .btn-accent { background-color: var(--alum-yellow); color: var(--smith-blue); box-shadow: 0 4px 12px rgba(255,209,0,0.25); border: 2px solid var(--smith-blue); }
         .btn-accent:hover { background-color: #e6bd00; transform: translateY(-1px); }
 
-        /* 📱 MOBILE RESPONSIVE NAVIGATION GRID (5 CHANNELS) */
+        /* 📱 MOBILE RESPONSIVE NAVIGATION GRID SYSTEM WITH DOUBLE-WIDE BUTTON */
         .tab-wrapper {
             background: #ffffff; padding: 10px; border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 30px; 
@@ -117,7 +112,7 @@
             grid-template-columns: repeat(2, 1fr); 
             gap: 8px;
         }
-        @media(min-width: 600px) {
+        @media(min-width: 768px) {
             .tab-wrapper { display: flex; flex-wrap: wrap; justify-content: center; }
         }
 
@@ -126,13 +121,13 @@
             font-size: 0.85rem; background: #f7f9fa; border: 1px solid #e2e8f0; color: #555; cursor: pointer;
             transition: all 0.15s; border-radius: 6px; text-align: center; height: 44px; display: flex; align-items: center; justify-content: center;
         }
-        @media(min-width: 600px) {
+        @media(min-width: 768px) {
             .tab-btn { width: auto; background: none; border: none; border-bottom: 3px solid transparent; border-radius: 0; padding: 12px 22px; }
         }
         .tab-btn.active { 
             color: #ffffff; background-color: var(--smith-blue); border-color: var(--smith-blue);
         }
-        @media(min-width: 600px) {
+        @media(min-width: 768px) {
             .tab-btn.active { color: var(--smith-blue); background-color: rgba(255,209,0,0.15); border-bottom: 3px solid var(--smith-blue); border-color: transparent; }
         }
 
@@ -150,6 +145,7 @@
             display: flex; align-items: center; justify-content: center; width: 100%; max-width: 480px; margin: 14px auto; padding: 15px;
             color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; transition: 0.2s;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
         }
         .hub-link:hover { transform: translateY(-2px); filter: brightness(92%); }
 
@@ -187,17 +183,30 @@
 </head>
 <body>
 
-    <!-- 📰 ULTRA-THICK SQUARED COVER HEADER BANNERS -->
+    <!-- 📰 OVERBLOWN TEXT + MATHEMATICALLY CURVED EDITORIAL SEAL HEADER -->
     <header>
-        <span class="cover-title">Smith</span>
-        <p class="cover-subtitle">Alumnae Portal Node — Class of 2005</p>
+        <span class="cover-title">Smith Grads</span>
+        
+        <!-- SVG Vector Emblem: Curves "CLASS OF" natively around top arc with centered 2005 logic -->
+        <svg class="editorial-seal" viewBox="0 0 100 100">
+            <defs>
+                <path id="textPath" d="M 16,50 A 34,34 0 0,1 84,50" />
+            </defs>
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#002855" stroke-width="2"/>
+            <circle cx="50" cy="50" r="41" fill="none" stroke="#002855" stroke-width="0.75"/>
+            <circle cx="50" cy="50" r="32" fill="#002855" />
+            <text fill="#002855" font-family="'Inter', sans-serif" font-size="8.5" font-weight="900" letter-spacing="3.5">
+                <textPath href="#textPath" startOffset="50%" text-anchor="middle">CLASS OF</textPath>
+            </text>
+            <text x="50" y="55" fill="#FFD100" font-family="'Inter', sans-serif" font-size="14" font-weight="900" text-anchor="middle" letter-spacing="-0.5px">2005</text>
+        </svg>
     </header>
 
     <div class="container">
 
         <!-- ⏳ TIMED COUNTDOWN MODULE -->
         <div class="countdown-container">
-            <h2 id="countdown-title">Countdown to Our 25th Milestone Reunion</h2>
+            <h2>Countdown to Our 25th Milestone Reunion</h2>
             <div class="clock-grid">
                 <div class="clock-box"><span id="days">00</span><small>Days</small></div>
                 <div class="clock-box"><span id="hours">00</span><small>Hours</small></div>
@@ -212,44 +221,39 @@
             <p>Welcome to our draft interface portal. This workspace layout connects our alumnae network globally as we head toward our milestone weekend. Check out your house loops, track fundraisers, and connect across our core communication portals below.</p>
         </div>
 
-        <!-- 🖱️ TOP QUICK BUTTON ACTIONS -->
+        <!-- 🖱️ TOP QUICK LINK BUTTON ACTIONS (GOES DIRECTLY TO INSTITUTION SECTOR) -->
         <div class="btn-group">
-            <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to Class Purse</a>
+            <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to College Fund</a>
             <a href="https://smith.edu" target="_blank" class="btn btn-primary">Alumnae Directory (Secure Login)</a>
         </div>
 
-        <!-- 📂 STACK NAVIGATION BUTTON TABS GRID -->
+        <!-- 📂 THE 7 SEPARATED NAVIGATION CHANNELS INTERACTIVE HOUSING SWITCH -->
         <div class="tab-wrapper">
             <button class="tab-btn active" onclick="switchTab(event, 'socialhub')">Our Social Hub</button>
             <button class="tab-btn" onclick="switchTab(event, 'album')">Photo Wall</button>
             <button class="tab-btn" onclick="switchTab(event, 'cabinet')">Class Cabinet</button>
+            <button class="tab-btn" onclick="switchTab(event, 'events')">Upcoming Events and Reunion</button>
+            <button class="tab-btn" onclick="switchTab(event, 'merch')">Class Fundraisers & Merch Store</button>
             <button class="tab-btn" onclick="switchTab(event, 'contact')">Contact & Updates</button>
-            <button class="tab-btn" onclick="switchTab(event, 'events')" style="grid-column: span 2;">Upcoming Events & Purse</button>
+            <!-- Double-wide baseline configuration layout anchor for mobile views -->
+            <button class="tab-btn" onclick="switchTab(event, 'news')" style="grid-column: span 2;">News & Notes</button>
         </div>
 
-        <!-- 📄 DATA DATA CONTAINER REGIONS -->
+        <!-- 📄 DYNAMIC CARDS PANEL CONTENT CONTROLLER -->
         <div id="panels-container">
             
-            <!-- PANEL 1: LINKTREE HUB -->
+            <!-- PANEL 1: LINKTREE HUBS (CLEAN STRIPPED DECORATIONS) -->
             <div id="socialhub" class="tab-panel" style="display: block; border-top-color: var(--alum-yellow); text-align: center;">
                 <h3>Our Social Hub & Channels</h3>
-                <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any active link shortcut button below:</p>
+                <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any verified link shortcut below:</p>
+                <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">Facebook Group Channel</a>
+                <a href="https://discord.com" target="_blank" class="hub-link" style="background:#5865F2;">Discord Community Server</a>
                 
-                <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">
-                    Official Class Facebook Group
-                </a>
+                <!-- NEW SPOTIFY SYSTEM SHORTCUT ENTRY ACCORDING TO PLAN -->
+                <a href="https://spotify.com" target="_blank" class="hub-link" style="background:#1DB954;">Class Generation Spotify Playlists</a>
                 
-                <a href="https://discord.com" target="_blank" class="hub-link" style="background:#5865F2;">
-                    Join Our Class Discord Community Server
-                </a>
-
-                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">
-                    Class Instagram Photo Feed Archive
-                </a>
-
-                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">
-                    Class LinkedIn Professional Network
-                </a>
+                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">Instagram Photo Feed Archive</a>
+                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">LinkedIn Professional Network</a>
             </div>
 
             <!-- PANEL 2: PHOTO WALL GRID -->
@@ -257,113 +261,26 @@
                 <h3>Class Photo Wall</h3>
                 <p style="color: #555; font-size: 0.95rem;">Snapshots and memory frames running across our years at Smith and past milestones.</p>
                 <div class="grid-gallery">
-                    <div class="photo-slot">
-                        <img src="https://unsplash.com" alt="Quad Life">
-                        <div class="photo-caption">Quad Life Memory</div>
-                    </div>
-                    <div class="photo-slot">
-                        <img src="https://unsplash.com" alt="Ivy Day">
-                        <div class="photo-caption">Ivy Day Parade Walks</div>
-                    </div>
-                    <div class="photo-slot">
-                        <img src="https://unsplash.com" alt="Commencement">
-                        <div class="photo-caption">Commencement Day '05</div>
-                    </div>
-                    <div class="photo-slot">
-                        <img src="https://unsplash.com" alt="Reunion">
-                        <div class="photo-caption">Past Milestone Reunion</div>
-                    </div>
+                    <div class="photo-slot"><img src="https://unsplash.com" alt="Quad Life"><div class="photo-caption">Quad Life Memory</div></div>
+                    <div class="photo-slot"><img src="https://unsplash.com" alt="Ivy Day"><div class="photo-caption">Ivy Day Parade Walks</div></div>
+                    <div class="photo-slot"><img src="https://unsplash.com" alt="Commencement"><div class="photo-caption">Commencement Day '05</div></div>
+                    <div class="photo-slot"><img src="https://unsplash.com" alt="Reunion"><div class="photo-caption">Past Milestone Reunion</div></div>
                 </div>
             </div>
 
-            <!-- PANEL 3: EXECUTIVE CABINET TILES -->
+            <!-- PANEL 3: CABINET LEADER TILES -->
             <div id="cabinet" class="tab-panel" style="border-top-color: var(--smith-gold);">
                 <h3>Class Cabinet Officers</h3>
                 <p style="color: #555; margin-bottom: 15px;">Your serving Class Executive Leadership Team:</p>
-                
                 <div class="cabinet-grid">
-                    <div class="cabinet-card">
-                        <img src="https://unsplash.com" alt="Officer Stock Photo" class="cabinet-photo">
-                        <h4>Alumna Officer A</h4>
-                        <p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class President</p>
-                    </div>
-                    <div class="cabinet-card">
-                        <img src="https://unsplash.com" alt="Officer Stock Photo" class="cabinet-photo">
-                        <h4>Alumna Officer B</h4>
-                        <p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class Vice President</p>
-                    </div>
-                    <div class="cabinet-card">
-                        <img src="https://unsplash.com" alt="Officer Stock Photo" class="cabinet-photo">
-                        <h4>Alumna Officer C</h4>
-                        <p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class Secretary</p>
-                    </div>
+                    <div class="cabinet-card"><img src="https://unsplash.com" alt="Officer" class="cabinet-photo"><h4>Alumna Officer A</h4><p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class President</p></div>
+                    <div class="cabinet-card"><img src="https://unsplash.com" alt="Officer" class="cabinet-photo"><h4>Alumna Officer B</h4><p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class Vice President</p></div>
+                    <div class="cabinet-card"><img src="https://unsplash.com" alt="Officer" class="cabinet-photo"><h4>Alumna Officer C</h4><p style="font-size: 0.85rem; font-weight: 700; color: #666; margin-top: 4px;">Class Secretary</p></div>
                 </div>
             </div>
 
-            <!-- PANEL 4: CONTACT FORMS INTERFACES -->
-            <div id="contact" class="tab-panel" style="border-top-color: var(--panel-blue);">
-                <h3>Submit Alumnae Quarterly Notes & Class Updates</h3>
-                <p style="color: #555; margin-bottom: 25px;">Use this secure form to share news for inclusion in the SAQ Quarterly notes section, submit newsletter articles, update your information, or ask questions.</p>
-                
-                <form onsubmit="event.preventDefault(); alert('Concept Form Submission Successful!');">
-                    <label class="form-label">Select Form Purpose:</label>
-                    <select class="form-select">
-                        <option>Submit Life Note for SAQ Alumnae Quarterly</option>
-                        <option>Submit Content for the Class Newsletter / Blog</option>
-                        <option>Request Profile Information Update</option>
-                        <option>General Question for the Class Cabinet</option>
-                    </select>
-
-                    <label class="form-label">Your Full Name:</label>
-                    <input type="text" class="form-input" placeholder="e.g., Jane Doe" required>
-
-                    <label class="form-label">Your Email Address:</label>
-                    <input type="email" class="form-input" placeholder="name@example.com" required>
-
-                    <label class="form-label">Your Submission Details, Note, or Question:</label>
-                    <textarea class="form-textarea" rows="5" placeholder="Type your note or update text here..." required></textarea>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Information Update</button>
-                </form>
-            </div>
-
-            <!-- PANEL 5: FUNDRAISERS AND ACCESS PORTALS -->
-            <div id="events" class="tab-panel" style="border-top-color: var(--panel-green);">
-                <h3>Upcoming Virtual Gatherings & Fundraisers</h3>
-                <p style="margin-bottom: 25px; color: #555;">Check here for active class connection portals and digital meeting access links.</p>
-                
-                <!-- Class Purse Thermometer component -->
-                <div style="background: #ffffff; padding: 25px; border-radius: 8px; border: 2px solid var(--alum-yellow); margin-bottom: 25px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--smith-blue); border-radius: 50%;">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--alum-yellow)" stroke-width="2">
-                                <rect x="2" width="20" height="12" rx="2" y="7"></rect><circle cx="12" cy="13" r="2"></circle><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path>
-                            </svg>
-                        </div>
-                        <h4 style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--smith-blue);">Fundraising for the Class Purse</h4>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Supporting our milestone reunion legacy gift and class operational framework assets.</p>
-                    <div style="width: 100%; background-color: #edf2f7; height: 24px; border-radius: 12px; overflow: hidden; position: relative; margin-bottom: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
-                        <div style="width: 68%; background: linear-gradient(90deg, var(--smith-gold), var(--alum-yellow)); height: 100%; border-radius: 12px 0 0 12px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px;">
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--smith-blue);">68%</span>
-                        </div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: #4a5568;">
-                        <span>Raised: $13,600</span><span>Goal: $20,000</span>
-                    </div>
-                </div>
-
-                <!-- Zoom Links Matrix layout -->
-                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border-left: 5px solid var(--smith-blue); border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                    <h4 style="color: var(--smith-blue); font-family: 'Inter', sans-serif; font-weight: 700; margin-bottom: 5px;">💻 Upcoming Class Zoom Meetings</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Tap the quick links below to open video meetings directly in your Zoom app:</p>
-                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #0b5ee6; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-right: 10px; margin-bottom: 5px;">Join Next Class Social Room &rarr;</a>
-                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #2d3748; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-bottom: 5px;">Join Cabinet Planning Room &rarr;</a>
-                </div>
-            </div>
-
-            <!-- ON CAMPUS TIMELINE REUNION TRACK -->
-            <div id="schedule" class="tab-panel" style="border-top-color: var(--smith-blue);">
+            <!-- PANEL 4: EVENTS TIMELINE -->
+            <div id="events" class="tab-panel" style="border-top-color: var(--panel-blue);">
                 <h3>25th Milestone Reunion Schedule</h3>
                 <p style="margin-bottom: 20px; font-weight: 600; color: var(--smith-blue);">Official Dates: Thursday, May 23 – Sunday, May 26, 2030</p>
                 <p style="margin-bottom: 20px; color: #555;">Save the dates for our return to campus! Here is our traditional layout timeline:</p>
@@ -371,55 +288,67 @@
                 <p style="margin-top: 10px;"><strong>Friday, May 24:</strong> Faculty Lectures & Welcome Back Common Room Tea (5:00 PM)</p>
                 <p style="margin-top: 10px;"><strong>Saturday, May 25:</strong> Traditional Alumni Parade (Remember to pack your whites!) & Illumination Night</p>
                 <p style="margin-top: 10px;"><strong>Sunday, May 26:</strong> Class of 2005 Farewell Breakfast & Housing Checkout (12:00 PM)</p>
+                
+                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border-left: 5px solid var(--smith-blue); border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 25px;">
+                    <h4 style="color: var(--smith-blue); margin-bottom: 5px;">💻 Mini Reunion Zoom Social Portals</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Connect virtually via our regular digital check-ins leading up to the on-campus milestone gathering:</p>
+                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #0b5ee6; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-right: 10px; margin-bottom: 5px;">Join Active Class Social Room &rarr;</a>
+                    <a href="https://zoom.us" target="_blank" style="display: inline-block; background: #2d3748; color: #fff; text-decoration: none; font-weight: bold; font-size: 0.85rem; padding: 8px 16px; border-radius: 4px; margin-bottom: 5px;">Join Cabinet Planning Room &rarr;</a>
+                </div>
             </div>
 
-        </div>
-    </div>
+            <!-- PANEL 5: DISCRETIONARY CLASS PURSE FUND & STORE CHANNELS -->
+            <div id="merch" class="tab-panel" style="border-top-color: var(--panel-green);">
+                <h3>Class Fundraisers & Merch Store</h3>
+                <p style="margin-bottom: 25px; color: #555;">This space is managed exclusively by your serving Class Cabinet for discretionary allocations, reunion amenities, and local class operation funding tasks.</p>
+                
+                <!-- Class Purse Thermometer layout -->
+                <div style="background: #ffffff; padding: 25px; border-radius: 8px; border: 2px solid var(--alum-yellow); margin-bottom: 25px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--smith-blue); border-radius: 50%;">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--alum-yellow)" stroke-width="2"><rect x="2" width="20" height="12" rx="2" y="7"></rect><circle cx="12" cy="13" r="2"></circle><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path></svg>
+                        </div>
+                        <h4 style="margin: 0; color: var(--smith-blue);">The Class Purse Milestone Goal</h4>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Discretionary tracking bar for custom class operations and legacy project coordination assets.</p>
+                    <div style="width: 100%; background-color: #edf2f7; height: 24px; border-radius: 12px; overflow: hidden; position: relative; margin-bottom: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                        <div style="width: 68%; background: linear-gradient(90deg, var(--smith-gold), var(--alum-yellow)); height: 100%; border-radius: 12px 0 0 12px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px;"><span style="font-size: 0.75rem; font-weight: 700; color: var(--smith-blue);">68%</span></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: #4a5568;"><span>Raised: $13,600</span><span>Goal: $20,000</span></div>
+                </div>
 
-    <footer>
-        <p>&copy; 2026 Class of 2005. Ultra-Thick Cover Typography Architecture.</p>
-    </footer>
+                <!-- Pay as you go store systems -->
+                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #eee;">
+                    <h4 style="color: var(--smith-blue); margin-bottom: 8px;">👕 On-Demand Custom Apparel Store</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Order custom class color garments, items, and event swag directly. Manufactured and shipped individually per order with zero production risk:</p>
+                    <a href="https://printful.com" target="_blank" class="hub-link" style="background:#E2442F; margin: 10px auto;">Launch Printful Merchandise Engine &rarr;</a>
+                    <a href="https://teespring.com" target="_blank" class="hub-link" style="background:#2B2B2B; margin: 10px auto;">Launch Spring (Teespring) Swag Store &rarr;</a>
+                </div>
+            </div>
 
-    <script>
-        function switchTab(event, tabId) {
-            const panels = document.querySelectorAll('.tab-panel');
-            panels.forEach(p => p.style.display = 'none');
-            
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(b => b.classList.remove('active'));
-            
-            document.getElementById(tabId).style.display = 'block';
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+            <!-- PANEL 6: INPUT CONTEXT UPDATER FORMS -->
+            <div id="contact" class="tab-panel" style="border-top-color: var(--smith-blue);">
+                <h3>Submit Updates & Reach Class Officers</h3>
+                <p style="color: #555; margin-bottom: 25px;">Use this secure portal tab form setup to request personal file profile alterations, file news text updates, or check quick questions with cabinet handlers.</p>
+                <form onsubmit="event.preventDefault(); alert('Concept Form Submission Successful!');">
+                    <label class="form-label">Select Form Purpose:</label>
+                    <select class="form-select">
+                        <option>General Question for the Class Cabinet</option>
+                        <option>Request Profile Information Update</option>
+                    </select>
+                    <label class="form-label">Your Full Name:</label>
+                    <input type="text" class="form-input" placeholder="e.g., Jane Doe" required>
+                    <label class="form-label">Your Email Address:</label>
+                    <input type="email" class="form-input" placeholder="name@example.com" required>
+                    <label class="form-label">Your Submission Details:</label>
+                    <textarea class="form-textarea" rows="5" placeholder="Type your text message details here..." required></textarea>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Information Update</button>
+                </form>
+            </div>
 
-    <!-- 🕹️ LIVE TIMER COUNTDOWN ENGINE CODE -->
-    <script>
-        const targetDate = new Date("May 23, 2030 16:00:00").getTime();
-
-        function updateCountdownClock() {
-            const now = new Date().getTime();
-            const timeDifference = targetDate - now;
-
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-            if (timeDifference > 0) {
-                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-            } else {
-                document.getElementById("countdown-title").innerText = "Welcome Back! Reunion is here!";
-                document.querySelector(".clock-grid").style.display = "none";
-            }
-        }
-
-        setInterval(updateCountdownClock, 1000);
-        updateCountdownClock();
-    </script>
-
-</body>
-</html>
+            <!-- PANEL 7: NEWS & NOTES CHANNELS LISTS -->
+            <div id="news" class="tab-panel" style="border-top-color: var(--smith-gold);">
+                <h3>Class News & Notes</h3>
+                <p style="font-style: italic; color: #666; margin-bottom: 15px;">Latest Circular Logs — Released Spring Season</p>
+                
+                <div style="background: #ffffff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 25px
