@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. College Portal - Class of 2005</title>
+    <title>Alumni Portal Concept - Class of 2005</title>
     
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Merriweather:ital,wght@0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -29,23 +29,23 @@
             line-height: 1.7;
         }
 
-        /* 📰 HIGH-IMPACT COMPRESSED COVER HEADER LAYOUT */
+        /* 📰 QUARTERLY MAGAZINE SPLIT HEADER COVER DESIGN */
         header {
-            background-color: var(--alum-yellow); /* Alum color canvas block matching your cover style */
-            padding: 50px 15px 40px 15px;
+            background-color: var(--alum-yellow); /* Solid Alum Yellow Banner Block */
+            padding: 45px 15px 35px 15px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border-bottom: 8px solid var(--smith-blue);
         }
         
-        /* OVERBLOWN 'SMITH' TEXT SPECIFICATIONS */
+        /* 🏛️ FIXED EXPANSION SQUARED TYPOGRAPHY ENGINE */
         .cover-title {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;                 /* Maximum structural weight */
-            font-size: clamp(4.5rem, 16vw, 9rem); /* Massive, adaptive overblown height scalable for phones */
+            /* Impact gives us those crisp, perfectly squared-off S structures */
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: clamp(4.5rem, 18vw, 9.5rem); /* Overblown size */
             color: var(--smith-blue);
-            line-height: 0.8;
-            letter-spacing: -6px;            /* Highly compressed editorial letter tracking matching your cover img */
+            line-height: 0.85;
+            letter-spacing: -2px; /* Controlled tracking so 'i' and 't' have clean breathing room */
             text-transform: uppercase;
             margin: 0 auto;
             display: block;
@@ -97,7 +97,7 @@
         .welcome-card h3 { font-size: 1.4rem; margin-bottom: 10px; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.5px; color: var(--smith-blue); }
         .welcome-card p { font-size: 0.95rem; color: #4a5568; line-height: 1.6; }
 
-        /* 🖱️ HIGH-PRIORITY ACTION CONTROL BUTTONS */
+        /* 🖱️ HIGH-PRIORITY UTILITY BUTTON GROUP */
         .btn-group { display: flex; gap: 15px; justify-content: center; margin-bottom: 35px; flex-wrap: wrap; }
         .btn { display: inline-block; padding: 14px 28px; font-weight: 700; text-decoration: none; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; text-align: center; border: none; cursor: pointer; }
         .btn-primary { background-color: var(--smith-blue); color: #ffffff; }
@@ -105,7 +105,7 @@
         .btn-accent { background-color: var(--alum-yellow); color: var(--smith-blue); box-shadow: 0 4px 12px rgba(255,209,0,0.25); border: 2px solid var(--smith-blue); }
         .btn-accent:hover { background-color: #e6bd00; transform: translateY(-1px); }
 
-        /* 📱 RESPONSIVE STACKED MOBILE NAVIGATION NAVIGATION SYSTEM (EXACTLY 5 CHANNELS) */
+        /* 📱 RESPONSIVE 5-BUTTON MOBILE GRIDS */
         .tab-wrapper {
             background: #ffffff; padding: 10px; border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 30px; 
@@ -133,7 +133,7 @@
             .tab-btn.active { color: var(--smith-blue); background-color: rgba(255,209,0,0.15); border-bottom: 3px solid var(--smith-blue); border-color: transparent; }
         }
 
-        /* DATA STORAGE PANELS */
+        /* DATA CHASSIS STORAGE PANELS */
         .tab-panel {
             display: none; background: #ffffff; padding: 35px 30px; border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-top: 6px solid var(--smith-blue);
@@ -142,7 +142,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .tab-panel h3 { margin-bottom: 18px; font-size: 1.45rem; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--smith-blue); letter-spacing: -0.5px; }
 
-        /* MAGAZINE LINKTREE HUB STYLE */
+        /* LINKTREE CONTAINER LAYOUT STYLES */
         .hub-link {
             display: flex; align-items: center; justify-content: center; width: 100%; max-width: 480px; margin: 14px auto; padding: 15px;
             color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; text-align: center; transition: 0.2s;
@@ -150,7 +150,7 @@
         }
         .hub-link:hover { transform: translateY(-2px); filter: brightness(92%); }
 
-        /* PHOTO GRID MATRIX */
+        /* PHOTO WALL GALLERIES MATRIX */
         .grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
         .photo-slot {
             position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #eee;
@@ -163,12 +163,12 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* LEADERSHIP CABINET CARDS */
+        /* CABINET LEADERSHIP OFFICER TILES */
         .cabinet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
         .cabinet-card { background: var(--bg-cream-yellow); padding: 25px 20px; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0; }
         .cabinet-photo { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 0 auto 15px auto; display: block; border: 3px solid var(--alum-yellow); box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
 
-        /* INPUTS FORM LAYOUT CONTROLS */
+        /* INPUT FIELD CONFIGURATION CONTAINER */
         .form-label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--smith-blue); font-size: 0.9rem; }
         .form-select, .form-input, .form-textarea {
             width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; 
@@ -184,7 +184,7 @@
 </head>
 <body>
 
-    <!-- 📰 PACKED HOLLYWOOD MAGAZINE COVER SPLIT DESIGN HEADER -->
+    <!-- 📰 MODERNE MAGAZINE COVER HEADER — FIXED COMPRESSION LABELS -->
     <header>
         <span class="cover-title">Smith</span>
         <p class="cover-subtitle">Alumnae Portal Node — Class of 2005</p>
@@ -203,19 +203,19 @@
             </div>
         </div>
 
-        <!-- 📋 EDITORIAL DRAFT NOTICE CARD -->
+        <!-- 📋 EDITORIAL WORKSPACE BANNER LOG NOTICE -->
         <div class="welcome-card">
             <h3>Class Workspace & Resources</h3>
             <p>Welcome to our draft interface portal. This workspace layout connects our alumnae node globally as we head toward our milestone weekend. Check out your house loops, track fundraisers, and connect across our core communication portals below.</p>
         </div>
 
-        <!-- 🖱️ MAIN ACTIONS QUICK CONTROLS -->
+        <!-- 🖱️ MAIN ACTIONS CORES ACCESS LINKS -->
         <div class="btn-group">
             <a href="https://smith.edu" target="_blank" class="btn btn-accent">Donate to Class Purse</a>
             <a href="https://smith.edu" target="_blank" class="btn btn-primary">Alumnae Directory (Secure Login)</a>
         </div>
 
-        <!-- 📂 THE 5 CORE PORTAL INTERACTIVE NAVIGATION BUTTONS (CLEANLY FIXED STACK GRID) -->
+        <!-- 📂 STACK INTERACTIVE CORE 5 NAVIGATION TABS SYSTEMS -->
         <div class="tab-wrapper">
             <button class="tab-btn active" onclick="switchTab(event, 'socialhub')">Our Social Hub</button>
             <button class="tab-btn" onclick="switchTab(event, 'album')">Photo Wall</button>
@@ -224,33 +224,32 @@
             <button class="tab-btn" onclick="switchTab(event, 'events')" style="grid-column: span 2;">Upcoming Events & Purse</button>
         </div>
 
-        <!-- 📄 SYSTEM CONTAINERS EXHIBIT LAYOUT CHASSIS -->
+        <!-- 📄 DYNAMIC CARDS CONTAINER BOX SLOTS -->
         <div id="panels-container">
             
-            <!-- BUTTON PANEL 1: SOCIAL HUB -->
+            <!-- PANEL 1: SOCIAL LINKTREE HUB -->
             <div id="socialhub" class="tab-panel" style="display: block; border-top-color: var(--alum-yellow); text-align: center;">
                 <h3>Our Social Hub & Channels</h3>
                 <p style="margin-bottom: 25px; color: #555;">Follow what our community is up to across networks. Click any active link shortcut button below:</p>
                 
                 <a href="https://facebook.com" target="_blank" class="hub-link" style="background:#1877F2;">
-                     Official Class Facebook Group
-                </a>
-
-                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">
-                     Class Instagram Photo Feed Archive
-                </a>
-
-                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">
-                     Class LinkedIn Professional Network              
+                    🌐 Official Class Facebook Group
                 </a>
                 
                 <a href="https://discord.com" target="_blank" class="hub-link" style="background:#5865F2;">
-                     Join Our Class Discord Community Server
+                    💬 Join Our Class Discord Community Server
                 </a>
-                
+
+                <a href="https://instagram.com" target="_blank" class="hub-link" style="background:#E1306C;">
+                    📸 Class Instagram Photo Feed Archive
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" class="hub-link" style="background:#0A66C2;">
+                    💼 Class LinkedIn Professional Network
+                </a>
             </div>
 
-            <!-- BUTTON PANEL 2: PHOTO WALL GRID -->
+            <!-- PANEL 2: PHOTO WALL GRID -->
             <div id="album" class="tab-panel" style="border-top-color: var(--panel-red);">
                 <h3>Class Photo Wall</h3>
                 <p style="color: #555; font-size: 0.95rem;">Snapshots and memory frames running across our years at Smith and past milestones.</p>
@@ -274,7 +273,7 @@
                 </div>
             </div>
 
-            <!-- BUTTON PANEL 3: CABINET SYSTEM CARDS -->
+            <!-- PANEL 3: CABINET LEADERSHIP TILES -->
             <div id="cabinet" class="tab-panel" style="border-top-color: var(--smith-gold);">
                 <h3>Class Cabinet Officers</h3>
                 <p style="color: #555; margin-bottom: 15px;">Your serving Class Executive Leadership Team:</p>
@@ -298,7 +297,7 @@
                 </div>
             </div>
 
-            <!-- BUTTON PANEL 4: CONTACT & NOTES UPDATER SUBMISSIONS -->
+            <!-- PANEL 4: CONTACT FORMS PORTAL -->
             <div id="contact" class="tab-panel" style="border-top-color: var(--panel-blue);">
                 <h3>Submit Alumnae Quarterly Notes & Class Updates</h3>
                 <p style="color: #555; margin-bottom: 25px;">Use this secure form to share news for inclusion in the SAQ Quarterly notes section, submit newsletter articles, update your information, or ask questions.</p>
@@ -325,7 +324,7 @@
                 </form>
             </div>
 
-            <!-- BUTTON PANEL 5: RESTORED EVENTS AND PURSE TRACKING INTERFACE -->
+            <!-- PANEL 5: RESTORED EVENTS AND PURSE TRACKING INTERFACE -->
             <div id="events" class="tab-panel" style="border-top-color: var(--panel-green);">
                 <h3>Upcoming Virtual Gatherings & Fundraisers</h3>
                 <p style="margin-bottom: 25px; color: #555;">Check here for active class connection portals and digital meeting access links.</p>
@@ -360,7 +359,7 @@
                 </div>
             </div>
 
-            <!-- THE REUNION SCHEDULE PANELS FOLDER LINK -->
+            <!-- HIDDEN FALLBACK TRACK: REUNION TIMELINE CALENDAR -->
             <div id="schedule" class="tab-panel" style="border-top-color: var(--smith-blue);">
                 <h3>25th Milestone Reunion Schedule</h3>
                 <p style="margin-bottom: 20px; font-weight: 600; color: var(--smith-blue);">Official Dates: Thursday, May 23 – Sunday, May 26, 2030</p>
@@ -375,7 +374,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Class of 2005. Magazine Dashboard Architecture.</p>
+        <p>&copy; 2026 Class of 2005. Squared Cover Typography Architecture.</p>
     </footer>
 
     <script>
@@ -391,7 +390,7 @@
         }
     </script>
 
-    <!-- 🕹️ TIMED COUNTDOWN CALCULATOR CODE LOOP -->
+    <!-- 🕹️ TIMED COUNTDOWN CALCULATOR ENGINE CHASSIS -->
     <script>
         const targetDate = new Date("May 23, 2030 16:00:00").getTime();
 
